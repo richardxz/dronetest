@@ -13,6 +13,8 @@ pipeline:
     image: "golang:latest"
     commands:
       - go build
+    when:
+      branch: master
 
   docker:
     image: plugins/docker
