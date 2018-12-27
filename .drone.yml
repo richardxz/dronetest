@@ -13,3 +13,17 @@ pipeline:
     image: "golang:latest"
     commands:
       - go build
+
+  docker:
+    image: plugins/docker
+    repo: richardxz/test
+    settings:
+      username: richardxz
+      password: 19910402xz
+      dockerfile: ./Dockerfile
+    tags: 
+      - latest
+      - "${DRONE_COMMIT_SHA}"
+    when:
+      event: push
+      branch: master
